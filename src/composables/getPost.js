@@ -6,13 +6,13 @@ const getPost = () => {
 
       const load = async () => {
         try {
-          let data = await fetch('https://localhost:7279/WeatherForecast/getPosts')
+          let data = await fetch('https://localhost:7028/WeatherForecast/getPosts')
           console.log(data)
           if(!data.ok) {
             throw Error('no data available!')
           }  
           const _data = await data.json()
-          posts.value = _data.posts
+          posts.value = _data
         } catch (err) {
           error.value = err.message;
           console.log(`err.message:: ${err.message}`)

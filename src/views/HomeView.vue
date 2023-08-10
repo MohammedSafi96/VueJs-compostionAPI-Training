@@ -25,7 +25,7 @@
 
     <!--Part 4-->
     <div v-if="error">{{ error }}</div>
-    <div v-if="posts.length">
+    <div v-if="posts && posts.length">
       <PostLise v-if="showPosts" :posts="posts" />
     </div>
     <div v-else> loading...</div>
@@ -46,7 +46,7 @@ export default {
     console.log('setup func')
 
     // 111111111111111111111111
-    // const p = ref('helllllooooo')
+    // const p = ref('hellllloooodddo')
     // console.log(p, p.value)
     // const name =  ref('Mhmd')
     // const age =  ref(27)
@@ -66,7 +66,7 @@ export default {
 
     //  const updateNinjaOne = () => {
     //     ninjaOne.value.age = 2
-    //     nameOne.value = 'name 11 -- (updated)'
+    //     nameOne.value = '///name 11 -- (updated)'
     //   }
     //   const updateNinjaTow = () => {
     //     ninjaTow.age = 26
@@ -74,7 +74,7 @@ export default {
     //   }
     //   //we can't use premitive values with reactive() 
     //   //ex: 
-    //   const nameOne = ref('name 1')
+    //   const nameOne = ref('///name 1')
     //   const nameTow = reactive('name 2')
 
     //   // ref is better for external comonent values
@@ -83,10 +83,11 @@ export default {
     //333333333333333333333333 computed, watch, watchEffect
     // const search = ref('')
     // const names = ref(['mario', 'yoshi', 'lubna', 'khaled', 'mhmd', 'noor', 'ghazal', 'amro'])
-
+    // // Computed is a great function recomend to use it
     // const matchingNames = computed(() => {
     //   return names.value.filter((name) => name.includes(search.value))
     // })
+    // console.log(matchingNames)
 
     // let index = 1;
     // const assignWatchToVariableToStopIt = watch(search, () => {
@@ -109,8 +110,9 @@ export default {
     const { posts, error, load } = getPost()
     load()
     const showPosts = ref(true)
- 
+ console.log('posts:: ' + JSON.stringify(posts))
     return { posts, showPosts, error }
+
   }
 }
 </script>

@@ -6,14 +6,14 @@ const getPostById = (id) => {
 
       const load = async () => {
         try {
-          let data = await fetch('https://localhost:7279/WeatherForecast/getPosts')
+          let data = await fetch('https://localhost:7028/WeatherForecast/getPosts')
           console.log(data)
           if(!data.ok) {
             throw Error('no data available!')
           }  
           const _data = await data.json()
           
-          post.value = _data.posts.find((b) => b.id == id)
+          post.value = _data.find((b) => b.id == id)
           console.log(JSON.stringify(post.value))
         } catch (err) {
           error.value = err.message;
